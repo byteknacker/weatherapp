@@ -6,7 +6,7 @@ function initMap() {
             lat: 0,
             lng: 0
         },
-        zoom: 0
+        zoom: 2
     });
     // var infoWindow = new google.maps.InfoWindow({
     //     map: map
@@ -20,6 +20,7 @@ function initMap() {
                 lng: position.coords.longitude
             };
             map.setCenter(pos);
+            map.zoom = 8;
         }, function () {
             handleLocationError(true, map, map.getCenter());
         });
