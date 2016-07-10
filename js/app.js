@@ -15,8 +15,8 @@ if (window.navigator.geolocation) {
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {
-            lat: 48,
-            lng: 16
+            lat: userLocation.latitude,
+            lng: userLocation.longitude
         },
         zoom: 8
     });
