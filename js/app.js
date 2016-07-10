@@ -20,7 +20,7 @@ function initMap() {
                 lng: position.coords.longitude
             };
             map.setCenter(pos);
-            map.zoom = 8;
+            map.setZoom(8);
         }, function () {
             handleLocationError(true, map, map.getCenter());
         });
