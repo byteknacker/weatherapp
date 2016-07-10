@@ -11,8 +11,8 @@ $(document)
             var output = '';
 
             output += "Your position has been located.\n\n";
-            output += 'Latitude: ' + position.coords.latitude + "&#xB0;\n";
-            output += 'Longitude: ' + position.coords.longitude + "&#xB0;\n";
+            output += 'Latitude: ' + position.coords.latitude + "°\n";
+            output += 'Longitude: ' + position.coords.longitude + "°\n";
             output += 'Accuracy: ' + position.coords.accuracy + " meters\n";
 
             if (position.coords.altitude) {
