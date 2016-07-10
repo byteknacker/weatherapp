@@ -5,15 +5,15 @@ $(document)
         var options = {
             enableHighAccuracy: true
         };
-        var map;
         var userLocation = {};
-
-        function initMap() {
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: userLocation.latitude, lng: userLocation.longitude},
-                zoom: 8
-            });
-        }
+        // var map;
+        //
+        // function initMap() {
+        //     map = new google.maps.Map(document.getElementById('map'), {
+        //         center: {lat: userLocation.latitude, lng: userLocation.longitude},
+        //         zoom: 8
+        //     });
+        // }
 
         function successCallback(position) {
             // Gather all location data into the userLocation object
