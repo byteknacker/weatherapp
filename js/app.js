@@ -6,14 +6,14 @@ $(document)
             enableHighAccuracy: true
         };
         var userLocation = {};
-        // var map;
-        //
-        // function initMap() {
-        //     map = new google.maps.Map(document.getElementById('map'), {
-        //         center: {lat: userLocation.latitude, lng: userLocation.longitude},
-        //         zoom: 8
-        //     });
-        // }
+        var map;
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: userLocation.latitude, lng: userLocation.longitude},
+                zoom: 8
+            });
+        }
 
         function successCallback(position) {
             // Gather all location data into the userLocation object
