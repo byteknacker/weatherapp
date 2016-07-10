@@ -4,11 +4,6 @@ var userLocation = {};
 var map;
 
 function initMap() {
-    if (window.navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-    } else {
-        console.log('Your browser does not natively support geolocation.');
-    }
     map = new google.maps.Map(document.getElementById('map'), {
         center: {
             lat: userLocation.latitude,
@@ -31,4 +26,10 @@ function errorCallback(error) {
     var errorMessage = "There was an error in getting your location.\n";
     errorMessage += error;
     console.log(errorMessage);
+}
+
+if (window.navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+} else {
+    console.log('Your browser does not natively support geolocation.');
 }
