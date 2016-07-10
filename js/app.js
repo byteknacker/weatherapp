@@ -9,8 +9,8 @@ var map;
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {
-            lat: userLocation.latitude,
-            lng: userLocation.longitude
+            lat: parseInt(userLocation.latitude),
+            lng: parseInt(userLocation.longitude)
         },
         zoom: 8
     });
