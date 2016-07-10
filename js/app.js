@@ -1,18 +1,17 @@
 "use strict";
 
-var options = {
-    enableHighAccuracy: true
-};
-var userLocation = {};
-var map;
-
-if (window.navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(successCallback, errorCallback, options);
-} else {
-    console.log('Your browser does not natively support geolocation.');
-}
-
 function initMap() {
+    var options = {
+        enableHighAccuracy: true
+    };
+    var userLocation = {};
+    var map;
+    
+    if (window.navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(successCallback, errorCallback, options);
+    } else {
+        console.log('Your browser does not natively support geolocation.');
+    }
     map = new google.maps.Map(document.getElementById('map'), {
         center: {
             lat: userLocation.latitude,
