@@ -1,14 +1,11 @@
 "use strict";
 
-var options = {
-    enableHighAccuracy: true
-};
 var userLocation = {};
 var map;
 
 function initMap() {
     if (window.navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(successCallback, errorCallback, options);
+        navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
     } else {
         console.log('Your browser does not natively support geolocation.');
     }
