@@ -5,42 +5,34 @@ $(document)
         var options = {
             enableHighAccuracy: true
         };
+        var map;
+        var userLocation = {};
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: userLocation.latitude, lng: userLocation.longitude},
+                zoom: 8
+            });
+        }
 
         function successCallback(position) {
-            // Do something with a location here
-            var output = '';
-
-            output += "Your position has been located.\n\n";
-            output += 'Latitude: ' + position.coords.latitude + "°\n";
-            output += 'Longitude: ' + position.coords.longitude + "°\n";
-            output += 'Accuracy: ' + position.coords.accuracy + " meters\n";
-
-            if (position.coords.altitude) {
-                output += 'Altitude: ' + position.coords.altitude + " meters\n";
-            }
-
-            if (position.coords.altitudeAccuracy) {
-                output += 'Altitude Accuracy: ' + position.coords.altitudeAccuracy + " meters\n";
-            }
-
-            if (position.coords.speed) {
-                output += 'Speed: ' + position.coords.Speed + " m/s\n";
-                output += 'Time of Position: ' + position.timestamp;
-            }
-
-            alert(output);
+            // Gather all location data into the userLocation object
+            userLocation.latitude = position.coords.latitude;
+            userLocation.longitude = position.coords.longitude;
+            console.log(userLocation);
         }
 
         function errorCallback(error) {
-            // There was a problem getting the location
+            // Display when there is location tracking enabled on device
+            // but there is still an error retrieving the location data
             var errorMessage = "There was an error in getting your location.\n";
             errorMessage += error;
-            alert();
+            console.log(errorMessage);
         }
 
         if (window.navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(successCallback, errorCallback, options);
         } else {
-            alert('Your browser does not natively support geolocation.');
+            console.log('Your browser does not natively support geolocation.');
         }
     });
