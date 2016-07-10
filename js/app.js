@@ -21,7 +21,7 @@ function initMap() {
             };
 
             infoWindow.setPosition(pos);
-            // infoWindow.setContent('Location found.');
+            infoWindow.setContent("You're Here");
             map.setCenter(pos);
         }, function () {
             handleLocationError(true, infoWindow, map.getCenter());
