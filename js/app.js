@@ -31,7 +31,7 @@ function initMap() {
                             map: map
                         });
                         var user_city = results[1].address_components["2"].long_name;
-                        console.log(results[1].address_components["2"]);
+                        console.log(results[1].address_components);
                         map.setZoom(10);
                         infowindow.setContent(
                             '<span style="color:black;">' + results[1].formatted_address +
