@@ -11,6 +11,8 @@ function initMap() {
         // With a zoom that displays nearly the entire world map
         zoom: 2
     });
+    var geocoder = new google.maps.Geocoder;
+    var infowindow = new google.maps.InfoWindow;
 
     // Try HTML5 geolocation and execute further methods upon success
     if (navigator.geolocation) {
@@ -21,10 +23,22 @@ function initMap() {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
+            geocoder.geocode({'location': pos}, function(results, status) {
+                if (status === google.maps.GeocoderStatus.OK) {
+                    if (results[1]) {
+                        map.setZoom(10);
+                        var marker = new google.maps.Marker({
+                            position: pos,
+                            map: map
+                        });
+                        infowindow.setContent(results[1].formatted_address);
+                        infowindow.open(map, marker);
+                    }
+                }
+            })
             // The initial map position is now changed to the new correct one
             // which is the user's current location.
-            map.setCenter(pos);
-            map.setZoom(10);
+            // map.setCenter(pos);
         }, function () {
             // This is the error function if there was no success before.
             handleLocationError(true, map, map.getCenter());
