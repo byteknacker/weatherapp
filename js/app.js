@@ -32,11 +32,14 @@ function initMap() {
                         });
                         var user_city = results[1].address_components["2"].long_name;
                         var user_country = results[1].address_components["3"].long_name;
+
                         infowindow.setContent(
                             '<span style="color:black;">' + results[1].formatted_address +
                             '</span>'
                         );
                         infowindow.open(map, marker);
+                        document.getElementById("user_city").write(user_city);
+                        document.getElementById("user_country").write(user_country);
                     }
                 }
             })
