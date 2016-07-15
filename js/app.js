@@ -38,7 +38,7 @@ function initMap() {
                             '</span>'
                         );
                         infowindow.open(map, marker);
-                        $("#user_city").append(user_city);
+                        $("#user_city").append(user_city + ",");
                         $("#user_country").append(user_country);
                     }
                 }
