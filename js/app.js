@@ -26,12 +26,13 @@ function initMap() {
             geocoder.geocode({'location': pos}, function(results, status) {
                 if (status === google.maps.GeocoderStatus.OK) {
                     if (results[1]) {
-                        map.setZoom(10);
                         var marker = new google.maps.Marker({
                             position: pos,
                             map: map
                         });
-                        console.log(results[1].address_components["2"].long_name);
+                        var user_city = results[1].address_components["2"].long_name;
+                        console.log(results[1].address_components["2"]);
+                        map.setZoom(10);
                         infowindow.setContent(
                             '<span style="color:black;">' + results[1].formatted_address +
                             '</span>'
