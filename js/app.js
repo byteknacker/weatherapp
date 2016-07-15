@@ -38,8 +38,9 @@ function initMap() {
                             '</span>'
                         );
                         infowindow.open(map, marker);
-                        document.getElementById("user_city").html(user_city);
-                        document.getElementById("user_country").html(user_country);
+                        $("#user_city").append(user_city);
+                        // document.getElementById("user_city").html(user_city);
+                        // document.getElementById("user_country").html(user_country);
                     }
                 }
             })
