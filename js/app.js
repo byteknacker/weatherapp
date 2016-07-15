@@ -31,8 +31,7 @@ function initMap() {
                             position: pos,
                             map: map
                         });
-                        map.setCenter(pos);
-                        console.log(results[1].formatted_address);
+                        // map.setCenter(pos);
                         infowindow.setContent(
                             '<span style="color:black;">'+ results[1].formatted_address +'</span>'
                         );
