@@ -31,11 +31,11 @@ function initMap() {
                             position: pos,
                             map: map
                         });
-                        // map.setCenter(pos);
                         infowindow.setContent(
                             '<span style="color:black;">'+ results[1].formatted_address +'</span>'
                         );
                         infowindow.open(map, marker);
+                        map.setCenter(pos);
                     }
                 }
             })
