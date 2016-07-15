@@ -31,6 +31,7 @@ function initMap() {
                             position: pos,
                             map: map
                         });
+                        map.setCenter(pos);
                         infowindow.setContent(results[1].formatted_address);
                         infowindow.open(map, marker);
                     }
@@ -38,7 +39,7 @@ function initMap() {
             })
             // The initial map position is now changed to the new correct one
             // which is the user's current location.
-            // map.setCenter(pos);
+
         }, function () {
             // This is the error function if there was no success before.
             handleLocationError(true, map, map.getCenter());
