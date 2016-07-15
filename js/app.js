@@ -33,11 +33,15 @@ function initMap() {
                         var user_city = results[1].address_components["2"].long_name;
                         var user_country = results[1].address_components["3"].long_name;
 
+                        // Change map location of display and zoom level
+                        map.setZoom(11);
                         infowindow.setContent(
                             '<span style="color:black;">' + results[1].formatted_address +
                             '</span>'
                         );
                         infowindow.open(map, marker);
+
+                        // Append the user location to HTML
                         $("#user_city").append(user_city + ",");
                         $("#user_country").append(user_country);
                     }
