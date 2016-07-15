@@ -31,8 +31,10 @@ function initMap() {
                             position: pos,
                             map: map
                         });
+                        console.log(results);
                         infowindow.setContent(
-                            '<span style="color:black;">'+ results[1].formatted_address +'</span>'
+                            '<span style="color:black;">' + results[1].formatted_address +
+                            '</span>'
                         );
                         infowindow.open(map, marker);
                     }
