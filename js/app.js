@@ -33,7 +33,9 @@ function initMap() {
                         });
                         map.setCenter(pos);
                         console.log(results[1].formatted_address);
-                        infowindow.setContent(results[1].formatted_address);
+                        infowindow.setContent(
+                            '<p style="color:blue;">'+ results[1].formatted_address +'</p>'
+                        );
                         infowindow.open(map, marker);
                     }
                 }
