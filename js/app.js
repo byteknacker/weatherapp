@@ -32,6 +32,7 @@ function initMap() {
                             map: map
                         });
                         map.setCenter(pos);
+                        console.log(results[1].formatted_address);
                         infowindow.setContent(results[1].formatted_address);
                         infowindow.open(map, marker);
                     }
