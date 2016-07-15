@@ -31,7 +31,7 @@ function initMap() {
                             position: pos,
                             map: map
                         });
-                        console.log(results[1].address_components["2"]);
+                        console.log(results[1].address_components["2"].long_name);
                         infowindow.setContent(
                             '<span style="color:black;">' + results[1].formatted_address +
                             '</span>'
