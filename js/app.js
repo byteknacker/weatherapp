@@ -39,8 +39,7 @@ function initMap() {
                         );
                         infowindow.open(map, marker);
                         $("#user_city").append(user_city);
-                        // document.getElementById("user_city").html(user_city);
-                        // document.getElementById("user_country").html(user_country);
+                        $("#user_country").append(user_country);
                     }
                 }
             })
