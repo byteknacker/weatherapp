@@ -40,6 +40,7 @@ function initMap() {
                         });
                         var user_city = results[1].address_components["2"].long_name;
                         var user_country = results[1].address_components["3"].long_name;
+                        var user_country_code = results[1].address_components["3"].short_name;
 
                         // Change map location of display and zoom level
                         map.setZoom(11);
@@ -52,11 +53,7 @@ function initMap() {
                         // Append the user location to HTML
                         $("#user_city").append(user_city + ",");
                         $("#user_country").append(user_country);
-                        console.log(user_city);
-                        console.log(user_city.length);
-                        console.log(user_country);
-                        console.log(user_country.length);
-                        console.log(results[1].address_components);
+                        console.log(user_country_code);
                     }
                 }
             });
