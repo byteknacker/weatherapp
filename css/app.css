@@ -2,6 +2,7 @@ html, body {
   margin: 0;
   padding: 0;
 }
+
 #map {
   height: 300px;
   width: 300px;
@@ -18,5 +19,5 @@ body {
 }
 
 .text_area {
-  padding-top: 300px;
+  padding-top: 150px;
 }
