@@ -55,7 +55,6 @@ function initMap() {
                         $("#user_country").append(user_country);
 
                         // Get weather data and display on the HTML
-                        console.log(user_city, user_country, user_country_code);
                         var openweatherApi = "https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?";
                         $.getJSON(openweatherApi, {
                             q: user_city + "," + user_country_code,
