@@ -1,4 +1,7 @@
 "use strict";
+var user_city;
+var user_country;
+var user_country_code;
 
 // Initiate Google maps instance from the Google Maps API
 function handleLocationError(browserHasGeolocation) {
@@ -29,9 +32,6 @@ function initMap() {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
-            var user_city;
-            var user_country;
-            var user_country_code;
 
             // Find location of user and set map to center at it with infowindow
             geocoder.geocode({'location': pos}, function (results, status) {
@@ -62,7 +62,7 @@ function initMap() {
 
             // Get weather data and display on the HTML
             console.log(user_city, user_country, user_country_code);
-            var openweatherApi = "http://api.openweathermap.org/data/2.5/weather?";
+            var openweatherApi = "https://api.openweathermap.org/data/2.5/weather?";
             $.getJSON(openweatherApi, {
                 q: user_city + "," + user_country_code,
                 APPID: "5fff6225e5fb459bea0c4356c958aabe",
