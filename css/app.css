@@ -1,10 +1,6 @@
 html, body {
     margin: 0 auto;
     padding: 0;
-    color: #161616;
-    font-family: 'Roboto', sans-serif;
-    text-align: center;
-    background-color: currentColor;
 }
 #map {
     height: 300px;
@@ -13,8 +9,10 @@ html, body {
     margin-top: 50px;
 }
 body {
-    background-color: #BF5C79;
-    color: white;
+    color: #161616;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    background-color: currentColor;
 }
 /*h1 {
     padding-top: 40px;
