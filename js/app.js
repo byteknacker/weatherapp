@@ -1,6 +1,12 @@
 "use strict";
 
 // Initiate Google maps instance from the Google Maps API
+function handleLocationError(browserHasGeolocation) {
+    browserHasGeolocation ?
+    alert('Error: The Geolocation service failed.') :
+    alert('Error: Your browser doesn\'t support geolocation.');
+}
+
 function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
         // Center at the middle of world map
@@ -23,6 +29,8 @@ function initMap() {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
+
+            // Find location of user and set map to center at it with infowindow
             geocoder.geocode({'location': pos}, function (results, status) {
                 if (status === google.maps.GeocoderStatus.OK) {
                     if (results[1]) {
@@ -48,6 +56,9 @@ function initMap() {
                 }
             });
 
+            // Get weather data and display on the HTML
+            
+
         }, function () {
             // This is the error function if there was no success before.
             handleLocationError(true);
@@ -56,10 +67,4 @@ function initMap() {
         // Browser doesn't support Geolocation in the first place.
         handleLocationError(false);
     }
-}
-
-function handleLocationError(browserHasGeolocation) {
-    browserHasGeolocation ?
-    alert('Error: The Geolocation service failed.') :
-    alert('Error: Your browser doesn\'t support geolocation.');
 }
