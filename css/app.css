@@ -14,9 +14,7 @@ body {
     text-align: center;
     background-color: currentColor;
 }
-/*h1 {
-    padding-top: 40px;
-}*/
+
 .text_area {
     padding-top: 200px;
 }
@@ -24,7 +22,6 @@ body {
 /* All CSS for the icons of weather situation */
 
 h1 {
-    margin-bottom: 1.375em;
     color: #fff;
     font-weight: 100;
     font-size: 2em;
@@ -32,7 +29,7 @@ h1 {
     padding-top: 40px;
 }
 p, a {
-    color: rgba(255, 255, 255, 0.3);
+    color: #fff;
     font-size: small;
 }
 p {
