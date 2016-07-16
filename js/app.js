@@ -61,7 +61,8 @@ function initMap() {
             });
 
             // Get weather data and display on the HTML
-            var openweatherApi = "api.openweathermap.org/data/2.5/weather?";
+            console.log(user_city, user_country, user_country_code);
+            var openweatherApi = "http://api.openweathermap.org/data/2.5/weather?";
             $.getJSON(openweatherApi, {
                 q: user_city + "," + user_country_code,
                 APPID: "5fff6225e5fb459bea0c4356c958aabe",
