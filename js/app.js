@@ -63,7 +63,7 @@ function initMap() {
                             type: "accurate",
                             units: "metric"
                         }, function (data) {
-                            console.log(data);
+                            console.log(data.main.temp);
                         });
                     }
                 }
