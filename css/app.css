@@ -21,9 +21,6 @@ body {
 
 /* All CSS for the icons of weather situation */
 
-html *, html *:before, html *:after {
-    box-sizing: inherit;
-}
 body {
     max-width: 42em;
     padding: 2em;
