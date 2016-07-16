@@ -52,12 +52,23 @@ function initMap() {
                         // Append the user location to HTML
                         $("#user_city").append(user_city + ",");
                         $("#user_country").append(user_country);
+                        console.log(user_city);
+                        console.log(user_city.length);
+                        console.log(user_country);
+                        console.log(user_country.length);
+                        console.log(results[1].address_components);
                     }
                 }
             });
 
             // Get weather data and display on the HTML
-            
+            // var openweatherApi = "api.openweathermap.org/data/2.5/weather?";
+            // $.getJSON(openweatherApi, {
+            //     q: user_city + "," + user_country,
+            //
+            // }, function (data) {
+            //
+            // });
 
         }, function () {
             // This is the error function if there was no success before.
