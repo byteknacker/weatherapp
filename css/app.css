@@ -21,9 +21,6 @@ body {
 
 /* All CSS for the icons of weather situation */
 
-html {
-    box-sizing: border-box;
-}
 html *, html *:before, html *:after {
     box-sizing: inherit;
 }
