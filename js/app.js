@@ -11,8 +11,8 @@ function initMap() {
         // With a zoom that displays nearly the entire world map
         zoom: 2
     });
-    var geocoder = new google.maps.Geocoder;
-    var infowindow = new google.maps.InfoWindow;
+    var geocoder = new google.maps.Geocoder();
+    var infowindow = new google.maps.InfoWindow();
 
     // Try HTML5 geolocation and execute further methods upon success
     if (navigator.geolocation) {
@@ -23,7 +23,7 @@ function initMap() {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
-            geocoder.geocode({'location': pos}, function(results, status) {
+            geocoder.geocode({'location': pos}, function (results, status) {
                 if (status === google.maps.GeocoderStatus.OK) {
                     if (results[1]) {
                         var marker = new google.maps.Marker({
@@ -46,21 +46,19 @@ function initMap() {
                         $("#user_country").append(user_country);
                     }
                 }
-            })
-            // The initial map position is now changed to the new correct one
-            // which is the user's current location.
+            });
 
         }, function () {
             // This is the error function if there was no success before.
-            handleLocationError(true, map, map.getCenter());
+            handleLocationError(true);
         });
     } else {
         // Browser doesn't support Geolocation in the first place.
-        handleLocationError(false, map, map.getCenter());
+        handleLocationError(false);
     }
 }
 
-function handleLocationError(browserHasGeolocation, map, pos) {
+function handleLocationError(browserHasGeolocation) {
     browserHasGeolocation ?
     alert('Error: The Geolocation service failed.') :
     alert('Error: Your browser doesn\'t support geolocation.');
