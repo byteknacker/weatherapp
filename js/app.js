@@ -29,6 +29,9 @@ function initMap() {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
+            var user_city;
+            var user_country;
+            var user_country_code;
 
             // Find location of user and set map to center at it with infowindow
             geocoder.geocode({'location': pos}, function (results, status) {
@@ -38,9 +41,9 @@ function initMap() {
                             position: pos,
                             map: map
                         });
-                        var user_city = results[1].address_components["2"].long_name;
-                        var user_country = results[1].address_components["3"].long_name;
-                        var user_country_code = results[1].address_components["3"].short_name;
+                        user_city = results[1].address_components["2"].long_name;
+                        user_country = results[1].address_components["3"].long_name;
+                        user_country_code = results[1].address_components["3"].short_name;
 
                         // Change map location of display and zoom level
                         map.setZoom(11);
@@ -53,19 +56,20 @@ function initMap() {
                         // Append the user location to HTML
                         $("#user_city").append(user_city + ",");
                         $("#user_country").append(user_country);
-                        console.log(user_country_code);
                     }
                 }
             });
 
             // Get weather data and display on the HTML
-            // var openweatherApi = "api.openweathermap.org/data/2.5/weather?";
-            // $.getJSON(openweatherApi, {
-            //     q: user_city + "," + user_country,
-            //
-            // }, function (data) {
-            //
-            // });
+            var openweatherApi = "api.openweathermap.org/data/2.5/weather?";
+            $.getJSON(openweatherApi, {
+                q: user_city + "," + user_country_code,
+                APPID: "5fff6225e5fb459bea0c4356c958aabe",
+                type: "accurate",
+                units: "metric"
+            }, function (data) {
+                console.log(data);
+            });
 
         }, function () {
             // This is the error function if there was no success before.
