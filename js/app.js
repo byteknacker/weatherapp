@@ -1,7 +1,7 @@
 "use strict";
 
 var app = {
-    celsius: 0;
+    celsius: 0
 };
 
 // Define error function for map instance
