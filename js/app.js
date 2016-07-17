@@ -1,6 +1,8 @@
 "use strict";
 
-var celsius;
+var app = {
+    celsius: 0;
+};
 
 // Define error function for map instance
 function handleLocationError(browserHasGeolocation) {
@@ -64,7 +66,7 @@ function initMap() {
                             type: "accurate",
                             units: "metric"
                         }, function (data) {
-                            celsius = data.main.temp;
+                            map.celsius = data.main.temp;
                             $("#temp_degree").append(celsius);
                         });
                     }
