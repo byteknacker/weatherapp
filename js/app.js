@@ -1,9 +1,6 @@
 "use strict";
 
 var app = {
-    celsius: 0,
-    map: {},
-    geocoder: {}
 };
 
 // Define error function for map instance
