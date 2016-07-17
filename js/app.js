@@ -1,7 +1,8 @@
 "use strict";
 
 var app = {
-    celsius: 0
+    celsius: 0,
+    map: {}
 };
 
 // Define error function for map instance
@@ -12,7 +13,7 @@ function handleLocationError(browserHasGeolocation) {
 }
 // Initiate Google maps instance from the Google Maps API
 function initMap() {
-    var map = new google.maps.Map(document.getElementById('map'), {
+    app.map = new google.maps.Map(document.getElementById('map'), {
         // Center at the middle of world map
         center: {
             lat: 0,
@@ -40,19 +41,19 @@ function initMap() {
                     if (results[1]) {
                         var marker = new google.maps.Marker({
                             position: pos,
-                            map: map
+                            map: app.map
                         });
                         var user_city = results[1].address_components["2"].long_name;
                         var user_country = results[1].address_components["3"].long_name;
                         var user_country_code = results[1].address_components["3"].short_name;
 
                         // Change map location of display and zoom level
-                        map.setZoom(11);
+                        app.map.setZoom(11);
                         infowindow.setContent(
                             '<span style="color:black;">' + results[1].formatted_address +
                             '</span>'
                         );
-                        infowindow.open(map, marker);
+                        infowindow.open(app.map, marker);
 
                         // Append the user location to HTML
                         $("#user_city").append(user_city + ",");
