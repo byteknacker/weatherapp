@@ -2,7 +2,8 @@
 
 var app = {
     celsius: 0,
-    map: {}
+    map: {},
+    geocoder: {}
 };
 
 // Define error function for map instance
@@ -22,8 +23,8 @@ function initMap() {
         // With a zoom that displays nearly the entire world map
         zoom: 2
     });
-    var geocoder = new google.maps.Geocoder();
-    var infowindow = new google.maps.InfoWindow();
+    app.geocoder = new google.maps.Geocoder();
+    app.infowindow = new google.maps.InfoWindow();
 
     // Try HTML5 geolocation and execute further methods upon success
     if (navigator.geolocation) {
@@ -36,7 +37,7 @@ function initMap() {
             };
 
             // Find location of user and set map to center at it with infowindow
-            geocoder.geocode({'location': pos}, function (results, status) {
+            app.geocoder.geocode({'location': pos}, function (results, status) {
                 if (status === google.maps.GeocoderStatus.OK) {
                     if (results[1]) {
                         var marker = new google.maps.Marker({
@@ -49,11 +50,11 @@ function initMap() {
 
                         // Change map location of display and zoom level
                         app.map.setZoom(11);
-                        infowindow.setContent(
+                        app.infowindow.setContent(
                             '<span style="color:black;">' + results[1].formatted_address +
                             '</span>'
                         );
-                        infowindow.open(app.map, marker);
+                        app.infowindow.open(app.map, marker);
 
                         // Append the user location to HTML
                         $("#user_city").append(user_city + ",");
