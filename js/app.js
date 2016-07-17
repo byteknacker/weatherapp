@@ -35,7 +35,9 @@ function initMap() {
             };
 
             // Find location of user and set map to center at it with infowindow
-            app.geocoder.geocode({'location': app.pos}, function (results, status) {
+            app.geocoder.geocode({
+                'location': app.pos
+            }, function (results, status) {
                 if (status === google.maps.GeocoderStatus.OK) {
                     if (results[1]) {
                         app.marker = new google.maps.Marker({
@@ -55,8 +57,10 @@ function initMap() {
                         app.infowindow.open(app.map, app.marker);
 
                         // Append the user location to HTML
-                        $("#user_city").append(app.user_city + ",");
-                        $("#user_country").append(app.user_country);
+                        $("#user_city")
+                            .append(app.user_city + ",");
+                        $("#user_country")
+                            .append(app.user_country);
 
                         // Get weather data and display on the HTML
                         app.openweatherApi = "https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?";
@@ -67,18 +71,23 @@ function initMap() {
                             units: "metric"
                         }, function (data) {
                             app.celsius = data.main.temp;
-                            app.fahrenheit = parseFloat(app.celsius * 1.8 + 32).toFixed(2);
+                            app.fahrenheit = parseFloat(app.celsius * 1.8 + 32)
+                                .toFixed(2);
                             app.units_tracker = "celsius";
-                            $("#temp_degree").append(app.celsius);
-                            $("#temp_units").on("click", function () {
-                                if (app.units_tracker === "celsius") {
-                                    $("#temp_degree").html(app.fahrenheit);
-                                    app.units_tracker = "fahrenheit";
-                                } else {
-                                    $("#temp_degree").html(app.celsius);
-                                    app.units_tracker = "celsius";
-                                }
-                            });
+                            $("#temp_degree")
+                                .append(app.celsius);
+                            $("#temp_units")
+                                .on("click", function () {
+                                    if (app.units_tracker === "celsius") {
+                                        $("#temp_degree")
+                                            .html(app.fahrenheit);
+                                        app.units_tracker = "fahrenheit";
+                                    } else {
+                                        $("#temp_degree")
+                                            .html(app.celsius);
+                                        app.units_tracker = "celsius";
+                                    }
+                                });
                         });
                     }
                 }
