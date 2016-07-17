@@ -1,7 +1,6 @@
 "use strict";
 
-var app = {
-};
+var app = {};
 
 // Define error function for map instance
 function handleLocationError(browserHasGeolocation) {
@@ -26,7 +25,7 @@ function initMap() {
     // Try HTML5 geolocation and execute further methods upon success
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
-            var pos = {
+            app.pos = {
                 // Assign the position take from the browser's geolocation API
                 // to properties of a position object.
                 lat: position.coords.latitude,
@@ -34,16 +33,16 @@ function initMap() {
             };
 
             // Find location of user and set map to center at it with infowindow
-            app.geocoder.geocode({'location': pos}, function (results, status) {
+            app.geocoder.geocode({'location': app.pos}, function (results, status) {
                 if (status === google.maps.GeocoderStatus.OK) {
                     if (results[1]) {
-                        var marker = new google.maps.Marker({
-                            position: pos,
+                        app.marker = new google.maps.Marker({
+                            position: app.pos,
                             map: app.map
                         });
-                        var user_city = results[1].address_components["2"].long_name;
-                        var user_country = results[1].address_components["3"].long_name;
-                        var user_country_code = results[1].address_components["3"].short_name;
+                        app.user_city = results[1].address_components["2"].long_name;
+                        app.user_country = results[1].address_components["3"].long_name;
+                        app.user_country_code = results[1].address_components["3"].short_name;
 
                         // Change map location of display and zoom level
                         app.map.setZoom(11);
@@ -51,16 +50,16 @@ function initMap() {
                             '<span style="color:black;">' + results[1].formatted_address +
                             '</span>'
                         );
-                        app.infowindow.open(app.map, marker);
+                        app.infowindow.open(app.map, app.marker);
 
                         // Append the user location to HTML
-                        $("#user_city").append(user_city + ",");
-                        $("#user_country").append(user_country);
+                        $("#user_city").append(app.user_city + ",");
+                        $("#user_country").append(app.user_country);
 
                         // Get weather data and display on the HTML
-                        var openweatherApi = "https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?";
-                        $.getJSON(openweatherApi, {
-                            q: user_city + "," + user_country_code,
+                        app.openweatherApi = "https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?";
+                        $.getJSON(app.openweatherApi, {
+                            q: app.user_city + "," + app.user_country_code,
                             APPID: "5fff6225e5fb459bea0c4356c958aabe",
                             type: "accurate",
                             units: "metric"
