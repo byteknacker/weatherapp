@@ -1,12 +1,12 @@
 "use strict";
 
-// Initiate Google maps instance from the Google Maps API
+// Define error function for map instance
 function handleLocationError(browserHasGeolocation) {
     browserHasGeolocation ?
     alert('Error: The Geolocation service failed.') :
     alert('Error: Your browser doesn\'t support geolocation.');
 }
-
+// Initiate Google maps instance from the Google Maps API
 function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
         // Center at the middle of world map
@@ -78,3 +78,5 @@ function initMap() {
         handleLocationError(false);
     }
 }
+
+console.log(celsius);
