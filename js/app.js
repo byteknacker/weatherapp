@@ -67,7 +67,7 @@ function initMap() {
                             units: "metric"
                         }, function (data) {
                             app.celsius = data.main.temp;
-                            $("#temp_degree").append(celsius);
+                            $("#temp_degree").append(app.celsius);
                         });
                     }
                 }
@@ -82,5 +82,3 @@ function initMap() {
         handleLocationError(false);
     }
 }
-
-console.log(celsius);
