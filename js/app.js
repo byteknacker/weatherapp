@@ -1,3 +1,5 @@
+"use strict";
+
 var celsius;
 
 // Define error function for map instance
