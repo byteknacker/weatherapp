@@ -78,7 +78,7 @@ function initMap() {
                             $("#temp_degree")
                                 .append(app.celsius);
                             $("input[name='temp_units']").on("switchChange.bootstrapSwitch", function (event, state) {
-                                if (state) {
+                                if (!state) {
                                     $("#temp_degree")
                                         .html(app.fahrenheit);
                                 } else {
