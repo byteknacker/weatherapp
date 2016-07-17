@@ -1,0 +1,15 @@
+{
+  "browser": true,
+  "devel": true,
+  "jquery": true,
+  "undef": true,
+  "unused": true,
+  "predef": ["google", "$"],
+  "bitwise": true,
+  "curly": true,
+  "eqeqeq": true,
+  "forin": true,
+  "futurehostile": true,
+  "latedef": true,
+  "onevar": true
+}

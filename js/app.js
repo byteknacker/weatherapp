@@ -1,15 +1,17 @@
-"use strict";
-
 var app = {};
 
 // Define error function for map instance
 function handleLocationError(browserHasGeolocation) {
-    browserHasGeolocation ?
-    alert('Error: The Geolocation service failed.') :
-    alert('Error: Your browser doesn\'t support geolocation.');
+    "use strict";
+    if (browserHasGeolocation) {
+        alert('Error: The Geolocation service failed.');
+    } else {
+        alert('Error: Your browser doesn\'t support geolocation.');
+    }
 }
 // Initiate Google maps instance from the Google Maps API
 function initMap() {
+    "use strict";
     app.map = new google.maps.Map(document.getElementById('map'), {
         // Center at the middle of world map
         center: {
@@ -65,10 +67,15 @@ function initMap() {
                             units: "metric"
                         }, function (data) {
                             app.celsius = data.main.temp;
+                            app.fahrenheit = parseFloat(app.celsius * 1.8 + 32).toFixed(2);
+                            app.units_tracker = "celsius";
                             $("#temp_degree").append(app.celsius);
                             $("#temp_units").on("click", function () {
-                                app.fahrenheit = parseFloat(app.celsius * 1.8 + 32).toFixed(2);
-                                $("#temp_degree").html(app.fahrenheit);
+                                if (app.units_tracker === "celsius") {
+                                    $("#temp_degree").html(app.fahrenheit);
+                                } else {
+                                    $("#temp_degree").html(app.celsius);
+                                }
                             });
                         });
                     }
@@ -84,9 +91,3 @@ function initMap() {
         handleLocationError(false);
     }
 }
-
-// $(document).ready(function () {
-//     $("#temp_units").on("click", function () {
-//         alert($(this).text());
-//     });
-// });
