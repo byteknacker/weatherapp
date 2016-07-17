@@ -73,8 +73,10 @@ function initMap() {
                             $("#temp_units").on("click", function () {
                                 if (app.units_tracker === "celsius") {
                                     $("#temp_degree").html(app.fahrenheit);
+                                    app.units_tracker = "fahrenheit";
                                 } else {
                                     $("#temp_degree").html(app.celsius);
+                                    app.units_tracker = "celsius";
                                 }
                             });
                         });
