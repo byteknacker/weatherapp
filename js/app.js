@@ -80,3 +80,9 @@ function initMap() {
         handleLocationError(false);
     }
 }
+
+$(document).ready(function () {
+    $("#temp_units").on("click", function () {
+        alert($(this).text());
+    });
+});
