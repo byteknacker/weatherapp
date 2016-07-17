@@ -77,7 +77,7 @@ function initMap() {
                             app.units_tracker = "celsius";
                             $("#temp_degree")
                                 .append(app.celsius);
-                            $(".bootstrap-switch-container")
+                            $(".bootstrap-switch")
                                 .on("click", function () {
                                     if (app.units_tracker === "celsius") {
                                         $("#temp_degree")
