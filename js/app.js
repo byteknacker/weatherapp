@@ -78,7 +78,7 @@ function initMap() {
                             $("#temp_degree")
                                 .append(app.celsius);
                             $("#temp_units")
-                                .on("click", function () {
+                                .on("click", "div", function () {
                                     if (app.units_tracker === "celsius") {
                                         $("#temp_degree")
                                             .html(app.fahrenheit);
