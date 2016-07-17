@@ -67,7 +67,8 @@ function initMap() {
                             app.celsius = data.main.temp;
                             $("#temp_degree").append(app.celsius);
                             $("#temp_units").on("click", function () {
-                                alert($(this).text());
+                                app.fahrenheit = celsius * 1.8 + 32;
+                                alert(app.fahrenheit);
                             });
                         });
                     }
