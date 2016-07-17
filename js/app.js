@@ -66,7 +66,7 @@ function initMap() {
                             type: "accurate",
                             units: "metric"
                         }, function (data) {
-                            map.celsius = data.main.temp;
+                            app.celsius = data.main.temp;
                             $("#temp_degree").append(celsius);
                         });
                     }
