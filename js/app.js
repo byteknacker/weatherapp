@@ -1,5 +1,5 @@
 var app = {};
-$("[name='my-checkbox']").bootstrapSwitch();
+$("[name='temp_units']").bootstrapSwitch();
 
 // Define error function for map instance
 function handleLocationError(browserHasGeolocation) {
