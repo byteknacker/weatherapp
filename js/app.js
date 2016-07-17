@@ -77,7 +77,7 @@ function initMap() {
                             app.units_tracker = "celsius";
                             $("#temp_degree")
                                 .append(app.celsius);
-                            $("input[name="temp_units"]").on("switchChange.bootstrapSwitch", function (event, state) {
+                            $("input[name='temp_units']").on("switchChange.bootstrapSwitch", function (event, state) {
                                 console.log(this);
                                 console.log(event);
                                 console.log(state);
