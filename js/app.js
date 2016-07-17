@@ -1,4 +1,5 @@
 var app = {};
+$("[name='my-checkbox']").bootstrapSwitch();
 
 // Define error function for map instance
 function handleLocationError(browserHasGeolocation) {
@@ -12,7 +13,6 @@ function handleLocationError(browserHasGeolocation) {
 // Initiate Google maps instance from the Google Maps API
 function initMap() {
     "use strict";
-    $("[name='my-checkbox']").bootstrapSwitch();
     app.map = new google.maps.Map(document.getElementById('map'), {
         // Center at the middle of world map
         center: {
