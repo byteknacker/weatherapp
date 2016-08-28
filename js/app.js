@@ -71,6 +71,7 @@ function initMap() {
                             type: "accurate",
                             units: "metric"
                         }, function (data) {
+                            console.log(data);
                             app.celsius = data.main.temp;
                             app.fahrenheit = parseFloat(app.celsius * 1.8 + 32)
                                 .toFixed(2);
